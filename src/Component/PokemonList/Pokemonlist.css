@@ -5,3 +5,17 @@
     align-items: center;
     ;
 }
+.pokemon-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    ;
+}
+
+.controls button{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    ;
+}
