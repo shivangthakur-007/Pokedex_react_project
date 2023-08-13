@@ -46,9 +46,13 @@ function PokemonList(){
     // const [y, sety]=useState(0);
     return (
     <div className="pokemon-list-wrapper">
-    <div>Pokemon list </div>
+       <div className="pokemon-wrapper">
         {(isloading) ? 'loading...' : pokemonlist.map((p)=> <Pokemon name={p.name} image={p.image} key={p.id}/>)}
-        
+        </div> 
+        <div className="controls">
+        <button>Prev</button>
+        <button>Next</button>
+        </div>
     </div>
     // {/* x: {x} <button onClick={()=> setx(x+ 1)}>INC</button> */}
     // {/* y: {y} <button onClick={()=> sety(y+ 1)}>INC</button> */}
