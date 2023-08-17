@@ -1,10 +1,12 @@
-import Pokedex from "./Component/Pokedex/Pokedex"
+import CustomRoutes from "../Customroute"
+// import Pokedex from "./Component/Pokedex/Pokedex"
 
 function App() {
 
   return (
     <>
-      <Pokedex />
+      <h1 id="pokedex-heading">Pokedex</h1>
+      <CustomRoutes />
     </>
   )
 }

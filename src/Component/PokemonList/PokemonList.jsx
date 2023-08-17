@@ -20,7 +20,7 @@ function PokemonList(){
         // console.log(response)
         const pokemonresults = response.data.results; //we get the array of the list from result
         
-        console.log(response.data)
+        // console.log(response.data)
         setnexturl(response.data.next)
         setprevurl(response.data.previous)
         //iterating over the array of pokemons, and using their url, to create an array of promises. 
@@ -41,7 +41,7 @@ function PokemonList(){
                 types: pokemon.types
             }
         });
-    console.log(pokelistResult);
+    // console.log(pokelistResult);
     setpokemonlist(pokelistResult);
     // console.log(setpokemonlist(res))
     setisloading(false);
@@ -54,7 +54,7 @@ function PokemonList(){
     return (
     <div className="pokemon-list-wrapper">
        <div className="pokemon-wrapper">
-        {(isloading) ? 'loading...' : pokemonlist.map((p)=> <Pokemon name={p.name} image={p.image} key={p.id}/>)}
+        {(isloading) ? 'loading...' : pokemonlist.map((p)=> <Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)}
         </div> 
         <div className="controls">
         <button disabled={prevurl == null} onClick={()=> setpokedex_url(prevurl)}>Prev</button>
