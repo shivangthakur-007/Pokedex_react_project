@@ -21,7 +21,7 @@
 }
 .pokemon_image{
     margin-top: 2rem;
-    max-height: 250px;
+    min-height: 250px;
 }
 .pokemon-details-wrapper{
     display: flex;
