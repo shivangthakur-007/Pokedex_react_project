@@ -1,4 +1,4 @@
-import CustomRoutes from "../Customroute"
+import CustomRoutes from "./CustomRoutes/Customroute"
 // import Pokedex from "./Component/Pokedex/Pokedex"
 import { Link } from "react-router-dom"
 import './App.css'
