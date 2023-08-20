@@ -5,7 +5,7 @@ function usePokemonlist(url, type){
 const [pokemonliststate, setpokemonliststate]= useState({
         pokemonlist: [],
         isloading: true,
-        pokedex_url: 'https://pokeapi.co/api/v2/pokemon',
+        pokedex_url: url,
         nexturl: '',
         prevurl: ''
     })
@@ -23,8 +23,15 @@ const [pokemonliststate, setpokemonliststate]= useState({
             ...state,
             nexturl: response.data.next,
             prevurl: response.data.previous
-        }))
-        // setprevurl(response.data.previous)
+        })) 
+
+        if(type){
+            setpokemonliststate((state)=>({
+                ...state,
+                pokemonlist: response.data.pokemon.slice(0,5)
+            }))
+        }else{
+            // setprevurl(response.data.previous)
         //iterating over the array of pokemons, and using their url, to create an array of promises. 
         //that will download list of 20 pokemon.
         // console.log(pokemonresults)
@@ -32,7 +39,7 @@ const [pokemonliststate, setpokemonliststate]= useState({
         // console.log(pokemonresultpromise)
         const pokemondata=await axios.all(pokemonresultpromise) //passing that array into axios.all
         // console.log(pokemondata);
-
+        
         //now iterate on the data of each pokemon, and extract id, name, image and types.
         const pokelistResult= pokemondata.map((pokedata) => {
             const pokemon= pokedata.data;
@@ -43,20 +50,21 @@ const [pokemonliststate, setpokemonliststate]= useState({
                 types: pokemon.types
             }
         });
-    // console.log(pokelistResult);
-    setpokemonliststate((state)=>({
-        ...state,
-        pokemonlist: pokelistResult,
-        isloading: false
+        // console.log(pokelistResult);
+        setpokemonliststate((state)=>({
+            ...state,
+            pokemonlist: pokelistResult,
+            isloading: false
         }));
         // setpokemonlist(res);
-    // console.log(setpokemonlist(res))
-    // setisloading(false);
-    }
-      useEffect(()=>{
+        // console.log(setpokemonlist(res))
+        // setisloading(false);
+    }               
+}
+    useEffect(()=>{
         downloadpokemon();
     }, [pokemonliststate.pokedex_url])
-
-    return {pokemonliststate, setpokemonliststate};
+    
+    return [pokemonliststate, setpokemonliststate];
 }
 export default usePokemonlist;

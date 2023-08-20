@@ -19,11 +19,12 @@ function Pokemondetails(){
             types: response.data.types.map((t)=> t.type.name)
         })
     }
-    const [pokemonliststate, setpokemonliststate]=usePokemonlist('https://pokeapi.co/api/v2/type/fire', false)
     // console.log(setpokemon)
-    
+    const [pokemonliststate]= usePokemonlist('https://pokeapi.co/api/v2/type/fire', true)
+
     useEffect(() => {
         downloadpokemon();
+        // console.log('list', pokemonliststate)
     }, []);
 
     return (
@@ -34,8 +35,13 @@ function Pokemondetails(){
        <div >Weight: <span>{pokemon.weight}</span></div>
        <div className="pokemon-types">
         {pokemon.types && pokemon.types.map((t)=><div key={t}>{t}</div>)}</div>
-        </div>
-
+    <div>
+        More Fire types Pokemon
+        <ul>
+            {pokemonliststate.pokemonlist && pokemonliststate.pokemonlist.map((p)=><li key={p.pokemon.url}> {p.pokemon.name}</li>) }
+        </ul>
+    </div>
+    </div>
     )
 }
 
