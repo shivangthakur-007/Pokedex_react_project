@@ -6,7 +6,7 @@ import Pokemon from "../Pokemon/Pokemon";
 import usePokemonlist from "../../hooks/usePokemonlist";
 
 function PokemonList(){
-    const [pokemonliststate, setpokemonliststate]= usePokemonlist('https://pokeapi.co/api/v2/pokemon    ', false);
+    const [pokemonliststate, setpokemonliststate]= usePokemonlist(false);
 
     return (
     <div className="pokemon-list-wrapper">
