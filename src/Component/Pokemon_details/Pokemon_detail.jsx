@@ -2,10 +2,10 @@ import './Pokemon-detail.css';
 import { useParams } from "react-router-dom";
 import usePokemondetail from '../../hooks/usePokemondetail';
 
-function Pokemondetails(){
+function Pokemondetails({PokemonName}){
    const {id}= useParams();
     // console.log(setpokemon)
-    const [pokemon]= usePokemondetail(id)   
+    const [pokemon]= usePokemondetail(id, PokemonName);   
     return (
         <div className="pokemon-details-wrapper">
             <img className="pokemon_image" src={pokemon.image} />
