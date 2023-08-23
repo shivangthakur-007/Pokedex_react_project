@@ -21,7 +21,7 @@ function Pokemondetails({PokemonName}){
             <div>
                 more {pokemon.types[0]} type pokemons
                 <ul>
-                    {pokemon.similartypes.map((p)=> <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
+                    {pokemon.similartypes.map((p)=> <li key={p.pokemon.url}>{p.pokemon.name}</li>)}
                 </ul>
             </div>
 
